@@ -1,12 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export default function Team() {
+export function LeaguesScreen() {
   return (
     <View>
-      <Text>Team</Text>
+      <Text>LeaguesScreen</Text>
     </View>
   )
 }
+
+export default LeaguesScreen;
 
 const styles = StyleSheet.create({})
