@@ -4,7 +4,7 @@ import React from 'react'
 export function TeamScreen() {
   return (
     <View>
-      <Text>Team</Text>
+      <Text>TeamScreen</Text>
     </View>
   )
 }

@@ -1,17 +1,13 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign, Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
-import { Dashboard, Team } from "./screens";
+import { DashboardScreen, TeamScreen, LeaguesScreen, ResultsScreen, SettingsScreen } from "./screens";
 import { PRIMARY } from "./constants";
 import LinksScreen from "./screens/LinksScreen";
-import { TeamScreen } from "./screens/Team";
-import { LeaguesScreen } from "./screens/Leagues";
-import { ResultsScreen } from "./screens/Results";
-import { SettingsScreen } from "./screens/Settings";
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -23,7 +19,7 @@ const TabNavigator = () => {
         headerShown: false,
         tabBarStyle: {
           paddingTop: 8,
-          paddingBottom: 8,
+          paddingBottom: 24,
         },
         tabBarLabelStyle: {
           paddingTop: 4,
@@ -39,7 +35,7 @@ const TabNavigator = () => {
             <AntDesign name="dashboard" size={size} color={color} />
           ),
         }}
-        component={Dashboard}
+        component={DashboardScreen}
       />
       <BottomTabs.Screen
         name="Team"

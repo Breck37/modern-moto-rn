@@ -1,2 +1,5 @@
-export { default as Dashboard } from './Dashboard';
-export { default as Team } from './Team';
+export * from './Dashboard';
+export * from './Team'
+export * from './Settings'
+export * from './Results'
+export * from './Leagues'
