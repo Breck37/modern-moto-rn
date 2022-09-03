@@ -32,6 +32,7 @@ interface SxEndpoints extends SeasonEndpoints {
 
 }
 
+export const MOTO_LIVE_URL = 'http://americanmotocrosslive.com/xml/mx/RaceResults.json'
 const MOTO_URL = 'http://americanmotocrossresults.com/xml/MX/events';
 
 export const mx: MxEndpoints = {
@@ -49,6 +50,7 @@ export const mx: MxEndpoints = {
 };
 
 const SX_URL = 'https://results.amasupercross.com/xml/sx/events'
+export const SUPER_LIVE_URL = 'https://live.amasupercross.com/xml/sx/RaceResults.json'
 
 export const sx: SxEndpoints = {
   smallBikeEntryList: ({ weekId, season }) => `${SX_URL}/S${season}${weekId}/S2ENTRYLIST.PDF`,
