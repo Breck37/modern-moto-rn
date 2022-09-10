@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
-import { BLUE, MOTO_LIVE_URL, PRIMARY, sx } from '../../constants'
-import { fetchAPIData } from '../../utils';
+import { BLUE, MOTO_LIVE_URL, PRIMARY } from '../../constants'
+import { get } from '../../utils';
 import { Page } from '../../components';
 import { StatusBar } from "expo-status-bar";
+import { mapEvent } from '../../api/map-event';
 
 export function DashboardScreen() {
   useEffect(() => {
     const request = async () => {
-      const data = await fetchAPIData(MOTO_LIVE_URL);
-      console.log({ data })
+      const event = await get(MOTO_LIVE_URL, mapEvent);
+      console.log({ event })
     };
     request()
     // const requestInterval = setInterval(request, 20000);
