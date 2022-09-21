@@ -8,5 +8,5 @@ export const mapEvent: MapEvent = (event) => ({
   fastestLapRiderNumber: event.MBY,
   fastestLapTime: event.MLT,
   currentSession: event.S,
-  currentTrack: event.T
-})
+  currentTrack: event.T,
+});
