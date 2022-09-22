@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { mapEvent } from "../api";
-import { StatusType } from "../api/interfaces";
+import { ModernEvent, ModernRider, StatusType } from "../api/interfaces";
 import { MOTO_LIVE_URL } from "../constants";
 import { get } from "../utils";
 
@@ -8,8 +8,13 @@ interface LiveEventParams {
   status: StatusType | "";
 }
 
-export function useLiveEvent({ status }: LiveEventParams) {
-  const [event, setEvent] = useState(null);
+interface LiveEventResult {
+  event: ModernEvent;
+  topThree?: ModernRider[];
+}
+
+export function useLiveEvent({ status }: LiveEventParams): LiveEventResult {
+  const [event, setEvent] = useState<ModernEvent>(null);
 
   useEffect(() => {
     const request = async () => {
@@ -29,7 +34,14 @@ export function useLiveEvent({ status }: LiveEventParams) {
     // }
   }, [status]);
 
+  function extractTopThree() {
+    if (!event?.riders?.length) return null;
+
+    return event.riders.slice(0, 3);
+  }
+
   return {
     event,
+    topThree: extractTopThree(),
   };
 }
