@@ -1,4 +1,4 @@
-import { LiveRider, ModernRider } from "./rider"
+import { LiveRider, ModernRider } from "./rider";
 
 interface LiveEvent {
   // A: ?, unknown
@@ -9,19 +9,19 @@ interface LiveEvent {
   MLT: string; // Fastest lap time
   // MSR: ; // Sections - not important
   // R: ?; unkonwn
-  S: string; // event session 
+  S: string; // event session
   // SC: ?; unkonwn
   // SCT: ?; unkonwn
   T: string; // city / track
 }
 
-interface ModernEvent {
+export interface ModernEvent {
   riders: ModernRider[]; // riders
   currentTime: string; // Current Time
   eventName: string; // Event
   fastestLapRiderNumber: string; // Fastes Lap rider number
   fastestLapTime: string; // Fastest lap time
-  currentSession: string; // event session 
+  currentSession: string; // event session
   currentTrack: string; // city / track
 }
 
