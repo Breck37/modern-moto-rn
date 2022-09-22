@@ -1,25 +1,18 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
-import { BLUE, MOTO_LIVE_URL, PRIMARY } from '../../constants'
-import { get } from '../../utils';
-import { Page } from '../../components';
+import { BLUE, PRIMARY } from '../../constants'
+import { Box, LoadingIcon, Page } from '../../components';
 import { StatusBar } from "expo-status-bar";
-import { mapEvent } from '../../api/map-event';
+import { useRaceSession, useLiveEvent } from '../../hooks';
 
 export function DashboardScreen() {
-  useEffect(() => {
-    const request = async () => {
-      const event = await get(MOTO_LIVE_URL, mapEvent);
-      console.log({ event })
-    };
-    request()
-    // const requestInterval = setInterval(request, 20000);
+  const { status } = useRaceSession();
+  const { event } = useLiveEvent({ status })
+  console.log({ status, event })
+  // console.log('3', { topThree })
 
-    // return () => {
-    // clearInterval(requestInterval);
-    // }
-  }, []);
+
 
   return (
     <>
@@ -28,6 +21,12 @@ export function DashboardScreen() {
         <Page>
           <View>
             <Text>DashboardScreen</Text>
+            <LoadingIcon />
+            <Box>
+              <View>
+                <Text>Hello</Text>
+              </View>
+            </Box>
           </View>
         </Page>
       </LinearGradient>
@@ -41,5 +40,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 24
-  }
+  },
+
 })
