@@ -6,7 +6,7 @@ export const Page = ({ children }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View>{children}</View>
+      <View style={styles.inner}>{children}</View>
     </SafeAreaView>
   )
 }
@@ -15,6 +15,10 @@ export default Page;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+  inner: {
+    marginBottom: -35,
     flex: 1,
   }
 })
