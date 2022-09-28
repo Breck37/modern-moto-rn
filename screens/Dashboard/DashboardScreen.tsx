@@ -20,7 +20,6 @@ export function DashboardScreen() {
       <LinearGradient style={styles.container} colors={[BLUE, PRIMARY]} start={[1, 0.1]}>
         <Page>
           <View>
-            <Text>DashboardScreen</Text>
             <LoadingIcon />
             <Box>
               <View>
