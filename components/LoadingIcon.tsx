@@ -7,7 +7,7 @@ export function LoadingIcon() {
   Animated.loop(
     Animated.timing(rotateAnimation, {
       toValue: 1,
-      duration: 2000,
+      duration: 1800,
       easing: Easing.linear,
       useNativeDriver: true,
     }),
